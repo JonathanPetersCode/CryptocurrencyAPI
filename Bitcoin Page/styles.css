@@ -1,0 +1,77 @@
+
+*{
+  box-sizing: border-box;
+  font-family: 'Orbitron', sans-serif;
+  font-family: 'Bai Jamjuree', sans-serif;
+}
+#title{
+  margin: 0;
+  color: white;
+  text-align: center;
+  border: 5px white;
+  background-color: rgba(64, 146, 67);
+}
+body{
+  background-color: black;
+}
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  z-index: -1;
+}
+
+#container{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 50px 30px 50px;
+  height: 550px;
+}
+
+.col{
+  text-align: center;
+  padding: 30px;
+  flex: 1;
+  z-index: 1;
+  border-radius: 10%;
+}
+.bitcoin{
+  background-color:rgba(209, 204, 135, 0.95)
+}
+
+.ethereum{
+  background-color: rgba(149, 126, 172, 0.95)
+}
+.litecoin{
+  background-color: rgba(131, 126, 126, 0.95)
+}
+
+h1{
+  font-size: 2rem;
+}
+
+#btn1, #btn2, #btn3{
+  padding: 10px 24px;
+  border: black 2px;
+  border-radius: 4px;
+  background-color: rgba(64, 146, 67);
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
+
+#btcResults, #ethResults, #ltcResults{
+  padding: 15px;
+  margin: 10px;
+  font-size: 2rem;
+}
+#crypto-logo, #footerText{
+  margin:0;
+  width: 100%;
+}
+footer{
+  font-size: 12px;
+  color: white;
+  padding-top: 80px;
+}

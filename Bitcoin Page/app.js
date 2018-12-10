@@ -46,4 +46,22 @@ litButton.addEventListener("click", function(){
 xhr.send();
 });
 
+(function() {
+  function checkTime(i) {
+      return (i < 10) ? "0" + i : i;
+  }
+
+  function startTime() {
+      var today = new Date(),
+          h = checkTime(today.getHours()),
+          m = checkTime(today.getMinutes()),
+          s = checkTime(today.getSeconds());
+      document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+      t = setTimeout(function () {
+          startTime()
+      }, 500);
+  }
+  startTime();
+})();
+
 console.log("Hi, I'm Jonathan Peters, web developer. I created this app using the CryptoCompare API and XHR, feel free to use my code in your own applications. Cheers!! - Nov. 2018" )

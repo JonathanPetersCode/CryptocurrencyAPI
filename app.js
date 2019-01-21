@@ -29,7 +29,7 @@ fetch("https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms
   }
 
   function startTime() {
-      var today = new Date(),
+      let today = new Date(),
           hours = checkTime(today.getHours()),
           minutes = checkTime(today.getMinutes()),
           seconds = checkTime(today.getSeconds());

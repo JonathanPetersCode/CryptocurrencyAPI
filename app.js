@@ -1,50 +1,29 @@
-let xhr = new XMLHttpRequest();
-let bitButton = document.getElementById("btn1");
+const bitButton = document.querySelector(".btn1");
+const ethButton = document.querySelector(".btn2");
+const litButton = document.querySelector(".btn3");
+const ethResultsData = document.querySelector("#ethResults");
+const btcResultsData = document.querySelector("#btcResults");
+const ltcResultsData = document.querySelector("#ltcResults");
 
-//Bitcoin Current Price
+fetch("https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD")
+.then(response => response.json())
+  .then(data => bitButton.addEventListener("click", function (){
+    btcResultsData.innerHTML = "$" + data.BTC.USD;
+    ethResultsData.innerHTML = "$" + data.ETH.USD;
+    ltcResultsData.innerHTML = "$" + data.LTC.USD;
+  }));
 
-bitButton.addEventListener("click", function(){
-  xhr.open("GET", "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD");
-  xhr.onreadystatechange = function(){
-    if(xhr.readyState === 4 && xhr.status == 200){
-    let result = JSON.parse(xhr.responseText).BTC.USD;
-    document.getElementById("btcResults").innerHTML = `$${result} USD`;
-  };
-}
-xhr.send();
-});
+fetch("https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD")
+.then(response => response.json())
+  .then(data => ethButton.addEventListener("click", function(){
+    ethResultsData.innerHTML = "$" + data.ETH.USD;
+}));
 
-//Ethereum Current Price
-
-let xhr2 = new XMLHttpRequest();
-let ethButton = document.getElementById("btn2");
-
-ethButton.addEventListener("click", function(){
-  xhr.open("GET", "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD");
-  xhr.onreadystatechange = function(){
-    if(xhr.readyState === 4 && xhr.status == 200){
-    let result = JSON.parse(xhr.responseText).ETH.USD;
-    document.getElementById("ethResults").innerHTML = `$${result} USD`;
-  };
-}
-xhr.send();
-});
-
-//Litecoin Current Price
-
-let xhr3 = new XMLHttpRequest();
-let litButton = document.getElementById("btn3");
-
-litButton.addEventListener("click", function(){
-  xhr.open("GET", "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD");
-  xhr.onreadystatechange = function(){
-    if(xhr.readyState === 4 && xhr.status == 200){
-    let result = JSON.parse(xhr.responseText).LTC.USD;
-    document.getElementById("ltcResults").innerHTML = `$${result} USD`;
-  };
-}
-xhr.send();
-});
+fetch("https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD")
+  .then(response => response.json())
+  .then(data => litButton.addEventListener("click", function () {
+    ltcResultsData.innerHTML = "$" + data.LTC.USD;
+  }));
 
 (function() {
   function checkTime(i) {
@@ -53,10 +32,10 @@ xhr.send();
 
   function startTime() {
       var today = new Date(),
-          h = checkTime(today.getHours()),
-          m = checkTime(today.getMinutes()),
-          s = checkTime(today.getSeconds());
-      document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+          hours = checkTime(today.getHours()),
+          minutes = checkTime(today.getMinutes()),
+          seconds = checkTime(today.getSeconds());
+      document.querySelector('#time').innerHTML = hours + ":" + minutes + ":" + seconds + " EST";
       t = setTimeout(function () {
           startTime()
       }, 500);
@@ -64,4 +43,5 @@ xhr.send();
   startTime();
 })();
 
-console.log("Hi, I'm Jonathan Peters, web developer. I created this app using the CryptoCompare API and XHR, feel free to use my code in your own applications. Cheers!! - Nov. 2018" )
+
+

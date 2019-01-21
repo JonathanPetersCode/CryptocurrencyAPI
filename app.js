@@ -9,8 +9,6 @@ fetch("https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms
 .then(response => response.json())
   .then(data => bitButton.addEventListener("click", function (){
     btcResultsData.innerHTML = "$" + data.BTC.USD;
-    ethResultsData.innerHTML = "$" + data.ETH.USD;
-    ltcResultsData.innerHTML = "$" + data.LTC.USD;
   }));
 
 fetch("https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD")
